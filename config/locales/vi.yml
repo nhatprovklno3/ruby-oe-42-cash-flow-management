@@ -1,7 +1,13 @@
 vi:
   web_title: "Quản lí chi tiêu cá nhân"
-  warning:
-    create_account_success: "Đã tạo tài khoản ! Đăng nhập lại để sử dụng dịch vụ"
   error:
     one: "Form này có chứa 1 lỗi"
     other: "Form này có chứa %{count} lỗi"
+  sign_in: "Đăng nhập"
+  sign_up: "Đăng ký"
+  sign_out: "Đăng xuất"
+  profile: "Thông tin"
+  flash:
+    sign_in_success: "Chào mừng bạn đến với Cash Flow!"
+    invalid_sign_in: "Email hoặc mật khẩu không đúng"
+    create_account_success: "Đã tạo tài khoản ! Đăng nhập lại để sử dụng dịch vụ"

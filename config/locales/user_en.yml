@@ -8,3 +8,4 @@ en:
         - "Password:"
         - "Confirmation:"
       button: "Create my account"
+  new_user: "New user?"
