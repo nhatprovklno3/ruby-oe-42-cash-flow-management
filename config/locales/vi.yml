@@ -1,2 +1,7 @@
 vi:
   web_title: "Quản lí chi tiêu cá nhân"
+  warning:
+    create_account_success: "Đã tạo tài khoản ! Đăng nhập lại để sử dụng dịch vụ"
+  error:
+    one: "Form này có chứa 1 lỗi"
+    other: "Form này có chứa %{count} lỗi"

@@ -1,2 +1,7 @@
 en:
   web_title: "Cash flow management"
+  warning:
+    create_account_success: "Created new account! Sign in to use our service"
+  error:
+    one: "The form contains 1 error"
+    other: "The form contains %{count} error"

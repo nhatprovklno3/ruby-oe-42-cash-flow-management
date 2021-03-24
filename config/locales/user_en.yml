@@ -1,0 +1,10 @@
+en:
+  users:
+    new:
+      title: "Sign up"
+      label:
+        - "Fullname"
+        - "Email:"
+        - "Password:"
+        - "Confirmation:"
+      button: "Create my account"
