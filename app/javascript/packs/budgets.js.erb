@@ -1,0 +1,25 @@
+$('#submit').click(function() {
+  from_money = parseFloat(document.getElementById('from_money').value)
+  to_money = parseFloat(document.getElementById('to_money').value)
+  if (from_money > to_money) {
+    alert(I18n.t("budget.alert_money_error"))
+  } else {
+    $('#form').submit()
+  }
+});
+
+$('.link_children').click(function(e) {
+  budget_id = 'id_budget_' + e.target.getAttribute('value')
+  ids = document.getElementById(budget_id).value.split(" ")
+  for(let id of ids) {
+    children_budget_id = "children_budget_" + id
+    if ($('#' + children_budget_id).css('display') == 'none') {
+      $('#' + children_budget_id).css('display', 'block')
+      continue
+    }
+    if ($('#' + children_budget_id).css('display') == 'block') {
+      $('#' + children_budget_id).css('display', 'none')
+      continue
+    }
+  }
+});

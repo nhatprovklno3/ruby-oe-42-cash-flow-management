@@ -7,6 +7,11 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
     <%= javascript_pack_tag "application", "data-turbolinks-track": "reload" %>
+    <script type="text/javascript">
+      I18n.translations = <%== I18n::JS.filtered_translations.to_json %>;
+      I18n.defaultLocale = "<%= I18n.default_locale %>";
+      I18n.locale = "<%= I18n.locale %>";
+    </script>
   </head>
   <body>
     <div class="navbar">
@@ -25,6 +30,7 @@
     </div>
   </body>
   <%= javascript_pack_tag "create_new_plan", "data-turbolinks-track": "reload" %>
+  <%= javascript_pack_tag "budgets", "data-turbolinks-track": "reload" %>
   <script>
    var language = "<%= I18n.locale %>";
    I18n.translations = <%== I18n::JS.filtered_translations.to_json %>;
