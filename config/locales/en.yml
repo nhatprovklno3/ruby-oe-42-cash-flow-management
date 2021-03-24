@@ -6,8 +6,10 @@ en:
   sign_in: "Sign in"
   sign_up: "Sign up"
   sign_out: "Sign out"
+  create: "Create"
   profile: "Profile"
   new_plan: "New plan"
+  currency: "$"
   flash:
     sign_in_success: "Welcome to Cash Flow!"
     invalid_sign_in: "Invalid email/password combination"
@@ -15,6 +17,8 @@ en:
     budget_can_not_load: "Can not load this budget"
     create_plan_success: "Create new plan. Check it in your plan."
     please_login: "Please login"
+    create_budget_success: "Create budget success"
+    not_found_budget: "Not found budget"
   validate:
     error_end_day_blank: "Please chooe end day"
     error_end_day_compare: "The end date is after the start date"

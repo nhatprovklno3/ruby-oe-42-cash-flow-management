@@ -1,0 +1,8 @@
+en:
+  budget:
+    name: "Budget"
+    total_money: "Total money"
+    alert_parent: "This budget belongs to"
+    parent_budget: "Parent budget"
+    select_none: "Select none"
+    money_error: "total money can't be more than parent budget money"

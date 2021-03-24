@@ -9,5 +9,11 @@ Rails.application.routes.draw do
     delete "/logout", to: "sessions#destroy"
     resources :users
     resources :spending_plans, only: %i(new create)
+    resources :budgets, only: %i(new create) do
+      collection do
+        get "/:parent_id/new", to: "budgets#new"
+        post "/:parent_id", to: "budgets#create", as: "with_parent"
+      end
+    end
   end
 end

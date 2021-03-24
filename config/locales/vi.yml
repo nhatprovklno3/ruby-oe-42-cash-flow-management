@@ -6,8 +6,10 @@ vi:
   sign_in: "Đăng nhập"
   sign_up: "Đăng ký"
   sign_out: "Đăng xuất"
+  create: "Tạo mới"
   profile: "Thông tin"
   new_plan: "Kế hoạch mới"
+  currency: "VNĐ"
   flash:
     sign_in_success: "Chào mừng bạn đến với Cash Flow!"
     invalid_sign_in: "Email hoặc mật khẩu không đúng"
@@ -15,6 +17,8 @@ vi:
     budget_can_not_load: "Không thể tải danh mục này"
     create_plan_success: "Tạo mới thành công. Kiểm tra ở mục kế hoạch của bạn"
     please_login: "Hãy đăng nhập trước"
+    create_budget_success: "Tạo khoản ngân sách thành công"
+    not_found_budget: "Không thể tìm thấy khoảng chi"
   validate:
     error_end_day_blank: "Hãy chọn ngày kết thúc"
     error_end_day_compare: "Ngày kết thúc phải ở trước ngày bắt đầu"
