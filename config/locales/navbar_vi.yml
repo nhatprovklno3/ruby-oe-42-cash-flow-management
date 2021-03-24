@@ -1,0 +1,9 @@
+vi:
+  layouts:
+    navbar:
+      title: "Quản lí tài sản cá nhân"
+      home: "Trang chủ"
+      about: "Giới thiệu"
+      languages: "Ngôn ngữ"
+      en: "Tiếng Anh"
+      vi: "Tíếng Việt"
