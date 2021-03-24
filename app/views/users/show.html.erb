@@ -1,0 +1,104 @@
+<h1 class="text-center"><b><%= t "cash_flow" %></b></h1>
+<div class="row-no-gutters">
+    <% total_plan = plans_by_month(Time.now) %>
+    <div class="col-lg-3 widget">
+      <div class="widget-content">
+        <div class="widget-heading"><%= t "spending_plans.total_income_this_month" %></div>
+        <div class="d-inline income">
+          <i class="fas fa-plus"></i>
+          <div class="widget-number">
+            <%= number_to_currency(total_income_by_month) %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 widget">
+      <div class="widget-content">
+        <div class="widget-heading"><%= t "spending_plans.total_expense_this_month" %></div>
+        <div class="d-inline expense">
+          <i class="fas fa-minus"></i>
+          <div class="widget-number">
+            <%= number_to_currency(total_expense_by_month) %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 widget">
+      <div class="widget-content">
+        <% money = difference_money %>
+        <div class="widget-heading">
+          <%= money >= 0 ? t("spending_plans.extra_money") : t("spending_plans.missing_amount") %>
+        </div>
+        <div class="widget-number <%= money >= 0 ? "income" : "expense" %>">
+          <%= number_to_currency(money) %>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 widget">
+      <div class="widget-content">
+        <div class="widget-heading"><%= t "spending_plans.total_plan_this_month" %></div>
+        <div class="widget-number"><%= total_plan.size %></div>
+      </div>
+    </div>
+</div>
+<div class="row-no-gutters">
+    <div class="col-lg-8">
+      <table class="table">
+        <thead>
+          <tr>
+            <th><%= t "spending_plans.month" %></th>
+            <th><%= t "spending_plans.income_plan" %></th>
+            <th><%= t "spending_plans.total_income" %></th>
+            <th><%= t "spending_plans.expense_plan" %></th>
+            <th><%= t "spending_plans.total_expense" %></th>
+            <th><%= t "spending_plans.difference_money" %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% 12.times do |i| %>
+            <% date = i.month.ago %>
+            <% total_plan = plans_by_month date %>
+            <% unless total_plan.empty? %>
+              <tr>
+                <td><%= date.strftime("%m/%Y") %></td>
+                <td><%= total_plan.income.size %></td>
+                <td class="income"><%= number_to_currency(total_income_by_month) %></td>
+                <td><%= total_plan.expense.size %></td>
+                <td class="expense"><%= number_to_currency(total_expense_by_month) %></td>
+                <% money = difference_money %>
+                <td class=<%= money >= 0 ? "income" : "expense" %>><%= number_to_currency(money) %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-lg-4">
+      <% total_plan = plans_by_month(Time.now) %>
+      <div class="card">
+        <div class="card-title">
+          <%= t "spending_plans.your_plan_in_month" %>
+        </div>
+        <div class="card-content">
+          <div class="row">
+            <div class="col-lg-6 card-content-left">
+              <div class="card-header">
+                <%= t "spending_plans.income" %>
+              </div>
+              <div class="card-plans">
+                <%= render partial: "users/spending_plan", collection: total_plan.income.includes(:budget) %>
+              </div>
+            </div>
+            <div class="col-lg-6 card-content-right">
+              <div class="card-header">
+                <%= t "spending_plans.expense" %>
+              </div>
+              <div class="card-plans">
+                <%= render partial: "users/spending_plan", collection: total_plan.expense.includes(:budget) %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
