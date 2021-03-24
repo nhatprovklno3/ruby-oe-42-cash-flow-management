@@ -1,0 +1,33 @@
+vi:
+  page_layout:
+    home:
+      title: "Trang chủ"
+      jumbotron:
+        - "Chúng tôi đem đến cho bạn"
+        - "Tiết kiệm là quốc sách"
+      label_image:
+        - "Thời gian"
+        - "Sự gọn gàng"
+        - "Thói quen tốt"
+        - "Làm chủ tài chính"
+      content: "Hãy để chúng tôi giúp bạn làm chủ tài chính của chính mình !!!"
+      button: "Đăng nhập ngay"
+    about:
+      title: "Về chúng tôi"
+      jumbotron:
+        - "Quản lý tài sản cá nhân"
+        - "Làm chủ cuộc sống của bạn"
+        - "Theo dõi"
+      container1:
+        - "Về chúng tôi"
+        - "Công ty Sun*.Inc"
+        - "Khóa đào tạo 42"
+        - "Xem thêm"
+      container_member1:
+        - "Nguyễn Hồng Nhật"
+        - "<h4><strong>Vị trí:</strong> Ruby dev</h4>"
+        - "<p><strong>Khóa:</strong>Khóa đào tạo 42.</p>"
+      container_member2:
+        - "Phan Minh Huy"
+        - "<h4><strong>Vị trí:</strong> Ruby dev</h4>"
+        - "<p><strong>Khóa:</strong>Khóa đào tạo 42.</p>"

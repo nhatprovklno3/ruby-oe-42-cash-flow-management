@@ -1,0 +1,33 @@
+en:
+  page_layout:
+    home:
+      title: "Home"
+      jumbotron:
+        - "We bring to you"
+        - "Thrift is a national policy"
+      label_image:
+        - "Time"
+        - "The neat"
+        - "Good habits"
+        - "Financial mastery"
+      content: "Let we help you own your finances !!!"
+      button: "Sign in now"
+    about:
+      title: "About"
+      jumbotron:
+        - "Cash flow management"
+        - "Take control of your own life"
+        - "Subcribe"
+      container1:
+        - "About us"
+        - "Sun*.Inc Company"
+        - "Open education batch 42"
+        - "Get in Touch"
+      container_member1:
+        - "Nguyen Hong Nhat"
+        - "<h4><strong>Position:</strong> Ruby dev</h4>"
+        - "<p><strong>Class:</strong>Open education bath 42.</p>"
+      container_member2:
+        - "Phan Minh Huy"
+        - "<h4><strong>Position:</strong> Ruby dev</h4>"
+        - "<p><strong>Class:</strong>Open education bath 42.</p>"

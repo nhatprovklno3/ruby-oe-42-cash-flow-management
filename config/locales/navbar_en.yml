@@ -1,0 +1,9 @@
+en:
+  layouts:
+    navbar:
+      title: "Cash flow Management"
+      home: "Home"
+      about: "About"
+      languages: "Language"
+      en: "English"
+      vi: "Vietnamese"
