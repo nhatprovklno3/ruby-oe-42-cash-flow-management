@@ -1,0 +1,74 @@
+<% provide(:title, "All Your Plan") %>
+
+<div class="row">
+  <div class="col-lg-4 text-center">
+    <h1><%= t(".title")[0] %></h1>
+  </div>
+  <%= form_tag spending_plans_path, method: :get do %>
+    <div class="col-lg-2 form-group">
+      <br>
+      <select class="form-control" name="budget_id">
+        <option value=""><%= t(".title")[1] %></option>
+        <% select_budget_when_search.each do |budget| %>
+          <option value="<%= budget[1] %>"
+            <%= budget[1] == params[:budget_id].to_i ? "selected" : "" %>>
+            <%= budget[0] %>
+          </option>
+        <% end %>
+      </select>
+    </div>
+
+    <div class="col-lg-2 form-group">
+      <br>
+      <select class="form-control" name="plan_type">
+        <option value=""><%= t(".title")[2] %></option>
+        <% select_for_type_plan.each do |type| %>
+          <option value="<%= type[1] %>"
+            <%= type[1] == params[:plan_type] ? "selected" : "" %>>
+            <%= type[0] %>
+          </option>
+        <% end %>
+      </select>
+    </div>
+
+    <div class="col-lg-4">
+      <br>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="<%= t(".title")[3] %>"
+               name="keyword" value="<%= params[:keyword] %>">
+        <span class="input-group-btn">
+           <%= submit_tag t(".button"), class:"btn btn-default" %>
+        </span>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<br>
+<% @spending_plans.each do |spending_plan| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        <%= link_to spending_plan_path(spending_plan.id) do %>
+          <b><%= t(".label")[0]%><%= spending_plan.name.capitalize %></b>
+        <% end %>
+      </h3>
+    </div>
+    <div class="panel-body">
+      <b><%= t(".label")[1]%> </b><%= spending_plan.budget.name.capitalize %>
+      <br>
+      <b><%= t(".label")[2]%> </b><%= spending_plan.plan_type.capitalize %>
+      <br>
+      <b><%= t(".label")[3]%> </b>
+      <%= number_to_currency(spending_plan.total_money, dilimiter: ",") %>
+      <br>
+      <small>
+        <i><%= t(".label")[4]%>
+          <%= l spending_plan.start_date, format: :default %> ->
+          <%= l spending_plan.end_date, format: :default %>
+        </i>
+      </small>
+    </div>
+  </div>
+<% end %>
+<%= will_paginate %>

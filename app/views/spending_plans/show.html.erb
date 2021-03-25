@@ -1,0 +1,37 @@
+<% provide(:title, "Name Plan") %>
+<h1><%= @spending_plan.name.capitalize %></h1>
+<br>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">
+    <b><%= t(".label")[0] %></b><%= @spending_plan.budget.name %>
+  </div>
+  <!-- List group -->
+  <ul class="list-group">
+    <li class="list-group-item">
+      <b><%= t(".label")[1] %><%= @spending_plan.plan_type.capitalize %>
+    </li>
+    <li class="list-group-item">
+      <b><%= t(".label")[2] %></b>
+      <%= number_to_currency(@spending_plan.total_money, dilimiter: ",") %>
+    </li>
+    <li class="list-group-item">
+      <b><%= t(".label")[3] %></b>
+      <%= l @spending_plan.start_date, format: :default %>
+    </li>
+    <li class="list-group-item">
+      <b><%= t(".label")[4] %></b>
+      <%= l @spending_plan.end_date, format: :default %>
+    </li>
+    <div class="panel-body">
+      <b><%= t(".label")[5] %></b><span><%= @spending_plan.note.capitalize %></span>
+    </div>
+    <div class="list-group-item">
+      <b><%= t(".label")[6] %></b>
+      <span>
+        <%= @spending_plan.repeat_type.capitalize.gsub(/_/, " ") %>
+      </span>
+    </div>
+  </ul>
+</div>
+<button class="btn btn-primary button-center"><%= t ".button_edit" %></button>
