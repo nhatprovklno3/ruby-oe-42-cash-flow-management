@@ -12,13 +12,16 @@
     <div class="navbar">
       <%= render "layouts/navbar" %>
     </div>
-    <div class="body">
-      <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>">
-          <%= message %>
-        </div>
+    <div class="container-fluid">
+      <% if logged_in? %>
+          <%= render "layouts/sidebar" %>
       <% end %>
-      <%= yield %>
+      <div class="<%= logged_in? ? 'wrapper page-content-wrapper' : 'container page-content-wrapper'%>">
+        <% flash.each do |message_type, message| %>
+          <div class="alert alert-<%= message_type %> text-center"><%= message %></div>
+        <% end %>
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>

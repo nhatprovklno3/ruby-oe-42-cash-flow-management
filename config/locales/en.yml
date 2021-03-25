@@ -1,7 +1,13 @@
 en:
   web_title: "Cash flow management"
-  warning:
-    create_account_success: "Created new account! Sign in to use our service"
   error:
     one: "The form contains 1 error"
     other: "The form contains %{count} error"
+  sign_in: "Sign in"
+  sign_up: "Sign up"
+  sign_out: "Sign out"
+  profile: "Profile"
+  flash:
+    sign_in_success: "Welcome to Cash Flow!"
+    invalid_sign_in: "Invalid email/password combination"
+    create_account_success: "Created new account! Sign in to use our service"
