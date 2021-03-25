@@ -4,5 +4,8 @@ Rails.application.routes.draw do
 
     get "page_layout/home"
     get "page_layout/about"
+    get "/signup", to: "users#new"
+    post "/signup", to: "users#create"
+    resources :users, only: [:new, :create]
   end
 end
