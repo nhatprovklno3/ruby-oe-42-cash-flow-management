@@ -1,0 +1,33 @@
+en:
+  spending_plans:
+    new:
+      title: "Create new plan"
+      label:
+        - "Plan Name*:"
+        - "Income or Expense*?"
+        - "For bugget*?:"
+        - "Start day*:"
+        - "End day*:"
+        - "Expected cost*:"
+        - "Note*:"
+        - "Repeat?"
+        - "Type repeat:"
+      option_for_type_plan:
+        Income: "income"
+        Expense: "expense"
+      option_for_type_repeat:
+        Week: "weekly"
+        Month: "monthly"
+        Year: "yearly"
+        Quarter: "quarterly"
+      option_new_budget:
+        New budget +: -1
+      button:
+        "Create plan"
+      status:
+        - "Status this plan: "
+        - "Start date after 01/01/2021"
+        - "End day before start day"
+        - "Finished"
+        - "Waiting"
+        - "Doing"

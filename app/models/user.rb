@@ -8,14 +8,12 @@ class User < ApplicationRecord
   validates :name, presence: true,
                    length: {maximum: Settings.user.name.max_length}
   validates :email, presence: true,
-                    format: {with: Settings.user.password.regex},
-                    uniqueness: true
+                    format: {with: Settings.user.email.regex}
   validates :password, presence: true,
                        length: {minimum: Settings.user.password.min_length}
   enum role: {user: 0, admin: 1}
 
   before_save :downcase_email
-  has_secure_password
 
   class << self
     def User.digest string
