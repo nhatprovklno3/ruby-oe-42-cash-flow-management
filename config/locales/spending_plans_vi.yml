@@ -1,0 +1,33 @@
+vi:
+  spending_plans:
+    new:
+      title: "Tạo kế hoạch mới"
+      label:
+        - "Tên kế hoạch*:"
+        - "Thu hay chi*?"
+        - "Cho hạng mục*?"
+        - "Ngày bắt đầu*:"
+        - "Ngày kết thúc*:"
+        - "Chi phí dự kiến*:"
+        - "Ghi chú*:"
+        - "Lặp lại kế hoạch?"
+        - "Lặp lai theo:"
+      option_for_type_plan:
+        Thu: "income"
+        Chi: "expense"
+      option_for_type_repeat:
+        Tuân: "weekly"
+        Tháng: "monthly"
+        Quí: "yearly"
+        Năm: "quarterly"
+      option_new_budget:
+        Hạng mục mới +: -1
+      button:
+        "Tạo kế hoạch"
+      status:
+        - "Trạng thái kế hoạch: "
+        - "Ngày bắt đầu ít nhất 01/01/2021"
+        - "Ngày bắt đầu bé hơn ngày kết thúc"
+        - "Đã kết thúc"
+        - "Đang đợi triển khai"
+        - "Đang thực hiện"

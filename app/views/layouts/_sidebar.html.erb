@@ -2,6 +2,7 @@
   <ul class="sidebar-nav">
     <li class="sidebar-brand"><%= link_to current_user.name, "#" %></li>
     <li><%= link_to t("profile"), "#" %></li>
+    <li><%= link_to  t("new_plan"), new_spending_plan_path %></li>
     <li><%= link_to t("sign_out"), logout_path, method: :delete  %></li>
   </ul>
 </div>

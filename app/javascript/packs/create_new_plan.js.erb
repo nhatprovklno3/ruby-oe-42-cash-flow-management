@@ -1,0 +1,53 @@
+// bundle exec rails webpacker:install:erb
+// rails assets:clobber
+let status_of_plan;
+
+$('#spending_plan_is_repeat').click(function() {
+  if (!$(this).is(':checked')) {
+    document.getElementById('repeatType').style.display = 'none'
+  } else {
+    document.getElementById('repeatType').style.display = 'block'
+  }
+});
+
+$('#spending_plan_start_date').change(function() {
+  dateStart = document.getElementById('spending_plan_start_date').value
+  dateEnd = document.getElementById('spending_plan_end_date').value
+  regex_date = '\\d{4}-\\d{2}-\\d{2}'
+  if (dateStart.match(regex_date)){
+    if (dateEnd.match(regex_date)){
+      status_of_plan = status_plan_on_front(new Date(dateStart), new Date(dateEnd));
+      document.getElementById('status').innerHTML = status_of_plan
+    }
+  }
+});
+
+$('#spending_plan_end_date').change(function() {
+  dateStart = document.getElementById('spending_plan_start_date').value
+  dateEnd = document.getElementById('spending_plan_end_date').value
+  regex_date = '\\d{4}-\\d{2}-\\d{2}'
+  if (dateEnd.match(regex_date)){
+    if (dateStart.match(regex_date)){
+      status_of_plan = status_plan_on_front(new Date(dateStart), new Date(dateEnd));
+      document.getElementById('status').innerHTML = status_of_plan
+    }
+  }
+});
+
+
+function status_plan_on_front(dateStart, dateEnd){
+  if(dateStart < new Date(2020,1,1)){
+    return I18n.t("spending_plans.new.status")[1]
+  }
+  if (dateStart > dateEnd){
+    return I18n.t("spending_plans.new.status")[2]
+  }
+  dateNow = new Date();
+  if (dateNow > dateEnd){
+    return I18n.t("spending_plans.new.status")[3]
+  }
+  if (dateNow < dateStart){
+    return I18n.t("spending_plans.new.status")[4]
+  }
+  return I18n.t("spending_plans.new.status")[5]
+}

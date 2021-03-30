@@ -38,3 +38,4 @@ config/environments/*.local.yml
 /spec/models
 /spec/requests
 /spec/views
+/vendor/bundle
