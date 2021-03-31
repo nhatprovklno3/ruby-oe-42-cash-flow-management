@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@budget, url: @parent_budget ? with_parent_budgets_path : budgets_path) do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
+      <%= f.label :name, t("budget.name") %>
+      <%= f.text_field :name, class: "form-control" %>
+      <%= f.label :money, t("budget.total_money") %>
+      <div class="input-group">
+        <%= f.number_field :money, class:"form-control", min: 0, step: :any %>
+        <span class="input-group-addon"><%= t "currency" %></span>
+      </div>
+      <%= f.label :parent_id, t("budget.parent_budget") %>
+      <%= f.select :parent_id, options_for_select(@budgets.collect{|u| [u.name, u.id]}, selected: params[:parent_id]), include_blank: t("budget.select_none") %>
+      <%= f.submit t("create"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

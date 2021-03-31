@@ -1,0 +1,8 @@
+vi:
+  budget:
+    name: "Ngân sách"
+    total_money: "Tổng số tiền"
+    alert_parent: "Ngân sách này thuộc về"
+    parent_budget: "Ngân sách cha"
+    select_none: "Không chọn"
+    money_error: "tổng tiền không thể lớn hơn tổng tiền của ngân sách cha"

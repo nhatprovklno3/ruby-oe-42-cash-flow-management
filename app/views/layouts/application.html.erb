@@ -14,9 +14,9 @@
     </div>
     <div class="container-fluid">
       <% if logged_in? %>
-          <%= render "layouts/sidebar" %>
+        <%= render "layouts/sidebar" %>
       <% end %>
-      <div class="<%= logged_in? ? 'wrapper page-content-wrapper' : 'container page-content-wrapper'%>">
+      <div class="<%= logged_in? ? "wrapper page-content-wrapper" : "container page-content-wrapper"%>">
         <% flash.each do |message_type, message| %>
           <div class="alert alert-<%= message_type %> text-center"><%= message %></div>
         <% end %>
