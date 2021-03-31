@@ -11,7 +11,7 @@
         <option value=""><%= t(".title")[1] %></option>
         <% select_budget_when_search.each do |budget| %>
           <option value="<%= budget[1] %>"
-            <%= budget[1] == params[:budget_id].to_i ? "selected" : "" %>>
+            <%= (budget[1] == params[:budget_id].to_i) ? "selected" : "" %>>
             <%= budget[0] %>
           </option>
         <% end %>
@@ -24,7 +24,7 @@
         <option value=""><%= t(".title")[2] %></option>
         <% select_for_type_plan.each do |type| %>
           <option value="<%= type[1] %>"
-            <%= type[1] == params[:plan_type] ? "selected" : "" %>>
+            <%= (type[1] == params[:plan_type]) ? "selected" : "" %>>
             <%= type[0] %>
           </option>
         <% end %>
@@ -64,8 +64,8 @@
       <br>
       <small>
         <i><%= t(".label")[4]%>
-          <%= l spending_plan.start_date, format: :default %> ->
-          <%= l spending_plan.end_date, format: :default %>
+          <%= l spending_plan.start_date %> ->
+          <%= l spending_plan.end_date %>
         </i>
       </small>
     </div>
