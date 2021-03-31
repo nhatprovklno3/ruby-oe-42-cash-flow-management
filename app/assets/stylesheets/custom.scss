@@ -47,7 +47,7 @@
 }
 
 .button-center{
-  margin-left: 231px
+  margin-left: 40%
 }
 
 #sidebar-wrapper {
@@ -132,4 +132,14 @@
 
 #repeatType {
   display: none
+}
+
+.spending_plans {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
 }

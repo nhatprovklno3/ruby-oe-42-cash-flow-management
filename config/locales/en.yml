@@ -1,4 +1,7 @@
 en:
+  time:
+    formats:
+      default: "%Y-%m-%d"
   web_title: "Cash flow management"
   error:
     one: "The form contains 1 error"
@@ -10,6 +13,7 @@ en:
   profile: "Profile"
   new_plan: "New plan"
   currency: "$"
+  all_plan: "Your plan"
   flash:
     sign_in_success: "Welcome to Cash Flow!"
     invalid_sign_in: "Invalid email/password combination"
@@ -19,6 +23,8 @@ en:
     please_login: "Please login"
     create_budget_success: "Create budget success"
     not_found_budget: "Not found budget"
+    not_your_plan: "Plan is not your"
+    plan_not_present: "Plan is not present"
   validate:
     error_end_day_blank: "Please chooe end day"
     error_end_day_compare: "The end date is after the start date"

@@ -31,3 +31,26 @@ en:
         - "Finished"
         - "Waiting"
         - "Doing"
+    index:
+      title:
+        - "All your plan"
+        - "Choose budget"
+        - "Choose type"
+        - "Seach by name"
+      button: "Tìm kiếm"
+      label:
+        - "Name plan: "
+        - "Type: "
+        - "Budget: "
+        - "Money:"
+        - "Time: "
+    show:
+      label:
+        - "Bugget of plan: "
+        - "Type: "
+        - "Total money: "
+        - "Start day: "
+        - "End day: "
+        - "Note: "
+        - "Repeat: "
+      button_edit: "Edit plan "

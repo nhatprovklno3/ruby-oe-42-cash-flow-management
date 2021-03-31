@@ -11,4 +11,8 @@ module SpendingPlansHelper
     I18n.t("spending_plans.new.option_new_budget")
         .merge @current_user.budgets.pluck(:name, :id).to_h
   end
+
+  def select_budget_when_search
+    @current_user.budgets.pluck(:name, :id).to_h
+  end
 end

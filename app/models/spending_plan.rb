@@ -16,6 +16,11 @@ class SpendingPlan < ApplicationRecord
   validates :end_date, presence: true
   validate :error_date_distance
 
+  scope :order_by_creat_at_desc, ->{order(created_at: :desc)}
+  scope :filter_name, ->(name){where "name LIKE ?", "%#{name}%"}
+  scope :filter_budget_id, ->(budget_id){where budget_id: budget_id}
+  scope :filter_plan_type, ->(type){where plan_type: type}
+
   before_create :status_for_plan
   before_create :repeat_type_for_plan
 

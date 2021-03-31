@@ -31,3 +31,26 @@ vi:
         - "Đã kết thúc"
         - "Đang đợi triển khai"
         - "Đang thực hiện"
+    index:
+      title:
+        - "Kế hoạch của bạn"
+        - "Chọn hạng mục"
+        - "Thu hay chi?"
+        - "Tìm theo tên"
+      button: "Tìm kiếm"
+      label:
+        - "Tên kế hoạch: "
+        - "Hoạt động: "
+        - "Hạng mục: "
+        - "Chi phí:"
+        - "Thời gian: "
+    show:
+      label:
+        - "Hạng mục: "
+        - "Thu/Chi: "
+        - "Tổng chi phí: "
+        - "Ngày bắt đầu: "
+        - "Ngày kết thúc: "
+        - "Ghi chú: "
+        - "Lặp lại: "
+      button_edit: "Chỉnh sửa kế hoạch"
