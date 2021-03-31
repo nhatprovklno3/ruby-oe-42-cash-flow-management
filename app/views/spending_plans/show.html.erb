@@ -17,11 +17,11 @@
     </li>
     <li class="list-group-item">
       <b><%= t(".label")[3] %></b>
-      <%= l @spending_plan.start_date, format: :default %>
+      <%= l @spending_plan.start_date %>
     </li>
     <li class="list-group-item">
       <b><%= t(".label")[4] %></b>
-      <%= l @spending_plan.end_date, format: :default %>
+      <%= l @spending_plan.end_date %>
     </li>
     <div class="panel-body">
       <b><%= t(".label")[5] %></b><span><%= @spending_plan.note.capitalize %></span>
