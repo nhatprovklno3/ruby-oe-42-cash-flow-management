@@ -5,9 +5,10 @@ class Budget < ApplicationRecord
   validates :name, presence: true
   validates :money, presence: true, numericality: {greater_than_or_equal_to: 0}
   validate :total_money_validator, if: ->{money && parent_id}
+  scope :load_children_budget, ->(parent_id){where("parent_id = ?", parent_id)}
 
   def total_money_validator
-    total_money = money + Budget.where(parent_id: parent_id).sum(:money)
+    total_money = money + Budget.load_children_budget(parent_id).sum(:money)
     return unless parent_budget = Budget.find_by(id: parent_id)
 
     return if total_money < parent_budget.money
