@@ -1,9 +1,9 @@
 class SpendingPlansController < ApplicationController
   before_action :logged_in_user
-  before_action :load_spending_plan, only: %i(show destroy)
-  before_action :check_owner_of_plan, only: %i(show destroy)
+  before_action :load_spending_plan, except: %i(new index create)
+  before_action :check_owner_of_plan, except: %i(new index create)
   before_action :send_plan_to_recycle, only: :destroy
-  before_action :load_budget, only: :create
+  before_action :load_budget, only: %i(create update)
 
   def new
     @spending_plan = SpendingPlan.new
@@ -16,6 +16,18 @@ class SpendingPlansController < ApplicationController
     @spending_plans = @spending_plans.order_by_creat_at_desc
                                      .paginate page: params[:page],
                                       per_page: Settings.paginate.per_page
+  end
+
+  def edit; end
+
+  def update
+    @spending_plan.budget_id = @budget.id
+    if @spending_plan.update spending_plan_params
+      flash[:success] = t "flash.update_plan_success"
+      redirect_to @spending_plan
+    else
+      render :edit
+    end
   end
 
   def show; end

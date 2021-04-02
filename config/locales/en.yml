@@ -36,6 +36,7 @@ en:
     delete_plan_fail: "Cannot deleted plan"
     restore_plan_success: "Restored"
     restore_plan_fail: "Cannot restore"
+    update_plan_success: "Updated your plan!"
   validate:
     error_end_day_blank: "Please chooe end day"
     error_end_day_compare: "The end date is after the start date"

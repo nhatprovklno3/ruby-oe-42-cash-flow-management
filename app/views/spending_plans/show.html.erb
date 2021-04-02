@@ -15,6 +15,11 @@
       class:"text-primary" %>
   <% end %>
 </h3>
+<% unless @spending_plan.recycle %>
+  <h3>
+    <%= link_to t(".button_edit"), edit_spending_plan_path(@spending_plan) %>
+  </h3>
+<% end %>
 
 <br>
 <div class="panel panel-default">
@@ -50,6 +55,3 @@
     </div>
   </ul>
 </div>
-<% unless @spending_plan.recycle %>
-  <button class="btn btn-primary button-center"><%= t ".button_edit" %></button>
-<% end %>

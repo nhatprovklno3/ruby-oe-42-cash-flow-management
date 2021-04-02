@@ -1,0 +1,49 @@
+<%= form_for @spending_plan do |f| %>
+  <%= render "shared/error_messages", object: @spending_plan %>
+  <div class="form-group">
+    <%= f.label :name, t(".label")[0] %>
+    <%= f.text_field :name, class:"form-control" %>
+  </div>
+  <div class="form-group">
+   <%= f.label :plan_type, t(".label")[1] %>
+   <%= f.select :plan_type, options_for_select(select_for_type_plan,
+    ( @spending_plan.plan_type || "income")),
+    class:"form-control"%>
+  </div>
+  <div class="form-group">
+    <%= f.label :budget_id, t(".label")[2] %>
+    <%= f.select :budget_id, options_for_select(select_budget,
+    (@spending_plan.budget.present?) ? @spending_plan.budget.id : -1), class:"form-control"%>
+  </div>
+  <div class="form-group">
+    <%= f.label :start_date, t(".label")[3] %>
+    <%= f.date_field :start_date, class:"form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :end_date, t(".label")[4] %>
+    <%= f.date_field :end_date, class:"form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :total_money, t(".label")[5] %>
+    <%= f.number_field :total_money, class:"form-control", min:"0" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :note, t(".label")[6] %>
+    <%= f.text_area :note, class:"form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :is_repeat, t(".label")[7] %>
+    <%= f.check_box :is_repeat, {}, "true", "false" %>
+  </div>
+  <div class="form-group", id="repeatType">
+    <%= f.label :repeat_type, t(".label")[8] %>
+    <%= f.select :repeat_type,
+      options_for_select(select_for_type_repeat,
+      (@spending_plan.is_repeat?) ? @spending_plan.repeat_type : "none"),
+      class:"form-control"%>
+  </div>
+  <div class="form-group">
+    <label class="form-group"><%= t(".status")[0] %><span id="status"></span></label>
+  </div>
+  <%= f.submit t(".button"), class: "btn btn-primary button-center" %>
+<% end %>

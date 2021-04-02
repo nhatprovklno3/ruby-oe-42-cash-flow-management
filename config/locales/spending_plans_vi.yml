@@ -17,6 +17,7 @@ vi:
       content_restore: "Bạn muốn khôi phục kế hoạch?"
     new:
       title: "Tạo kế hoạch mới"
+    form:
       label:
         - "Tên kế hoạch*:"
         - "Thu hay chi*?"
@@ -38,7 +39,7 @@ vi:
       option_new_budget:
         Hạng mục mới +: -1
       button:
-        "Tạo kế hoạch"
+        "Đồng ý"
       status:
         - "Trạng thái kế hoạch: "
         - "Ngày bắt đầu ít nhất 01/01/2021"
@@ -46,6 +47,10 @@ vi:
         - "Đã kết thúc"
         - "Đang đợi triển khai"
         - "Đang thực hiện"
+    new:
+      title: "Tạo kế hoạch mới"
+    edit:
+      title: "Chỉnh sửa kế hoạch"
     index:
       title:
         - "Kế hoạch của bạn"
