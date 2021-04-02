@@ -1,5 +1,4 @@
 <% provide(:title, "All Your Plan") %>
-
 <div class="row">
   <div class="col-lg-4 text-center">
     <h1><%= t(".title")[0] %></h1>
@@ -55,9 +54,9 @@
       </h3>
     </div>
     <div class="panel-body">
-      <b><%= t(".label")[1]%> </b><%= spending_plan.budget.name.capitalize %>
+      <b><%= t(".label")[2]%> </b><%= spending_plan.budget.name.capitalize %>
       <br>
-      <b><%= t(".label")[2]%> </b><%= spending_plan.plan_type.capitalize %>
+      <b><%= t(".label")[1]%> </b><%= spending_plan.plan_type.capitalize %>
       <br>
       <b><%= t(".label")[3]%> </b>
       <%= number_to_currency(spending_plan.total_money, dilimiter: ",") %>

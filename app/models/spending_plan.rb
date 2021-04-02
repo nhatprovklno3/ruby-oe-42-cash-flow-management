@@ -20,6 +20,11 @@ class SpendingPlan < ApplicationRecord
   scope :filter_name, ->(name){where "name LIKE ?", "%#{name}%"}
   scope :filter_budget_id, ->(budget_id){where budget_id: budget_id}
   scope :filter_plan_type, ->(type){where plan_type: type}
+  scope :filter_statistic, (lambda do |start_statistic, end_statistic|
+    where("start_date between ? and ?", start_statistic, end_statistic)
+    .or(where("end_date between ? and ?", start_statistic, end_statistic))
+    .or(where("? between start_date and end_date", start_statistic))
+  end)
 
   before_create :status_for_plan
   before_create :repeat_type_for_plan

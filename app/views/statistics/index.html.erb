@@ -1,0 +1,97 @@
+<% provide :title, t(".title")[3] %>
+<% if condition_display_defaul_title? %>
+  <h1 class="text-center"><%= t(".title")[0] %></h1>
+<% else %>
+  <h1 class="text-center">
+    <%= t(".title")[1] %>
+    <%= l params[:start_date].to_date %>
+    <%= t(".title")[2] %>
+    <%= l params[:end_date].to_date %>
+  </h1>
+<% end %>
+<br>
+<div class="row tex">
+  <div class="col-lg-2">
+    <br>
+    <h4 class="text-right"><%= t(".choose")[0] %></h4>
+  </div>
+  <%= form_tag statistics_path, method: :get do %>
+    <div class="col-lg-4">
+      <label><%= t(".choose")[1] %></label>
+      <input type="date" class="form-control" id="start_date" name="start_date"
+        value=<%= params[:start_date] || "" %>>
+    </div>
+    <div class="col-lg-4">
+      <label><%= t(".choose")[2] %></label>
+      <input type="date" class="form-control" id="end_date" name="end_date"
+      value=<%= params[:end_date] || "" %>>
+    </div>
+      <div class="col-lg-2 align-items-center">
+      <br>
+      <button type="submit" class="btn btn-primary mt-4" id="submit">
+        <%= t(".choose")[3] %>
+      </button>
+    </div>
+  <% end %>
+</div>
+<br>
+<br>
+
+<div class="row">
+  <div class="col-lg-3">
+    <div class = "panel panel-success text-center text-success">
+       <div class = "panel-heading">
+          <h3 class = "panel-title">
+          <span class="glyphicon glyphicon-heart-empty"></span>
+          <%= t(".label")[0] %>
+          </h3>
+       </div>
+       <div class = "panel-body">
+
+          <%= @number_plan %>
+       </div>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <div class = "panel panel-info text-center text-info">
+       <div class = "panel-heading">
+          <h3 class = "panel-title">
+            <span class="glyphicon glyphicon-signal"></span>
+            <%=(@spend_money > 0) ? t(".label")[1] : t(".label")[2] %>
+          </h3>
+       </div>
+       <div class = "panel-body">
+          <%= number_to_currency(@spend_money, dilimiter: ",") %>
+       </div>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <div class = "panel panel-danger text-center text-danger">
+       <div class = "panel-heading">
+          <h3 class = "panel-title">
+            <span class="glyphicon glyphicon-plus"></span>
+            <%= t(".label")[3] %>
+          </h3>
+       </div>
+       <div class = "panel-body">
+         <%= number_to_currency(@total_money_income, dilimiter: ",") %>
+       </div>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <div class = "panel panel-warning text-center text-warning">
+       <div class = "panel-heading">
+          <h3 class = "panel-title">
+          <span class="glyphicon glyphicon-minus"></span>
+          <%= t(".label")[4] %>
+          </h3>
+       </div>
+
+       <div class = "panel-body">
+          <%= number_to_currency(@total_money_expense, dilimiter: ",") %>
+       </div>
+    </div>
+  </div>
+</div>
+
+<%= income_expense_by_name_plan %>

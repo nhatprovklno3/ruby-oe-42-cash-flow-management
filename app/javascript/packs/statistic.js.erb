@@ -1,0 +1,12 @@
+$('#submit').click(function() {
+  dateStart = document.getElementById('start_date').value
+  dateEnd = document.getElementById('end_date').value
+  regex_date = '\\d{4}-\\d{2}-\\d{2}'
+  if (dateEnd.match(regex_date) && dateStart.match(regex_date)){
+    if(new Date(dateStart) > new Date(dateEnd)){
+      alert(I18n.t("statistics.index.error")[0]);
+    }
+  } else {
+    alert(I18n.t("statistics.index.error")[1]);
+  }
+});

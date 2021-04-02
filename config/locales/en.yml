@@ -34,3 +34,24 @@ en:
   will_paginate:
     previous: "<"
     next: ">"
+  statistics:
+    index:
+      title:
+        - "Statistics 1 month recently"
+        - "Statistics from date "
+        - "to "
+        - "Statistic"
+      label:
+        - "Number of plan:"
+        - "You saved:"
+        - "You have spent:"
+        - "Total income:"
+        - "Total expense:"
+      choose:
+        - "Choose time"
+        - "Start date"
+        - "End date"
+        - "Create"
+      error:
+        - "Date start > date end"
+        - "Date start, date end can not require"

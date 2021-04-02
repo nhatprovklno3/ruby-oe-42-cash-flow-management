@@ -8,7 +8,7 @@ class SpendingPlansController < ApplicationController
   end
 
   def index
-    @spending_plans = current_user.spending_plans
+    @spending_plans = current_user.spending_plans.includes(:budget)
     search_spending_plan
     @spending_plans = @spending_plans.order_by_creat_at_desc
                                      .paginate page: params[:page],
