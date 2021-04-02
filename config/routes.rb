@@ -16,5 +16,6 @@ Rails.application.routes.draw do
     end
     resources :spending_plans
     resources :statistics, only: :index
+    resources :recycle_plans, only: %i(index update)
   end
 end

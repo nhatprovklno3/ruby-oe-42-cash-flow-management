@@ -1,0 +1,38 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <%= link_to spending_plan_path(spending_plan.id) do %>
+        <b><%= t(".label")[0]%><%= spending_plan.name.capitalize %></b>
+        <span>
+            <i>
+              <%= link_to t(".label")[5], spending_plan,
+                method: :delete, data: {confirm: t(".content_delete")},
+                class: spending_plan.recycle ? "text-danger" : "text-primary" %>
+            </i>
+        </span>
+        <span style="display: <%= spending_plan.recycle ? "inline" : "none" %>">
+            <i>
+              <%= link_to t(".label")[6], recycle_plan_path(spending_plan),
+                method: :patch, data: {confirm: t(".content_restore")},
+                class:"text-primary" %>
+            </i>
+        </span>
+      <% end %>
+    </h3>
+  </div>
+  <div class="panel-body">
+    <b><%= t(".label")[2]%> </b><%= spending_plan.budget.name.capitalize %>
+    <br>
+    <b><%= t(".label")[1]%> </b><%= spending_plan.plan_type.capitalize %>
+    <br>
+    <b><%= t(".label")[3]%> </b>
+    <%= number_to_currency(spending_plan.total_money, dilimiter: ",") %>
+    <br>
+    <small>
+      <i><%= t(".label")[4]%>
+        <%= l spending_plan.start_date %> ->
+        <%= l spending_plan.end_date %>
+      </i>
+    </small>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<h1><%= t ".title" %></h1>
+<% if @spending_plans.empty? %>
+  <br><br>
+  <h4 class="text-center"><i><%= t ".empty_content" %></i></h4>
+<% else %>
+  <%= render  @spending_plans %>
+  <%= will_paginate @spending_plans %>
+<% end %>
+

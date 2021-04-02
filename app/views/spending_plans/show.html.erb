@@ -1,5 +1,21 @@
-<% provide(:title, "Name Plan") %>
-<h1><%= @spending_plan.name.capitalize %></h1>
+<% provide(:title, @spending_plan.name.capitalize ) %>
+<h1 class="text-left">
+  <%= @spending_plan.name.capitalize %>
+</h1>
+<h3>
+  <% if @spending_plan.recycle %>
+    <%= link_to t("spending_plans.spending_plan.label")[6], recycle_plan_path(@spending_plan),
+      method: :patch, data: {confirm: t("spending_plans.spending_plan.content_restore")},
+    class:"text-primary" %>
+    </i>
+  <% else %>
+    <%= link_to t("spending_plans.spending_plan.label")[5],
+      @spending_plan, method: :delete,
+      data: {confirm: t("spending_plans.spending_plan.content_delete")},
+      class:"text-primary" %>
+  <% end %>
+</h3>
+
 <br>
 <div class="panel panel-default">
   <!-- Default panel contents -->
@@ -34,4 +50,6 @@
     </div>
   </ul>
 </div>
-<button class="btn btn-primary button-center"><%= t ".button_edit" %></button>
+<% unless @spending_plan.recycle %>
+  <button class="btn btn-primary button-center"><%= t ".button_edit" %></button>
+<% end %>

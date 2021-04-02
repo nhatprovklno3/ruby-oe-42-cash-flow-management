@@ -1,6 +1,8 @@
 class SpendingPlansController < ApplicationController
   before_action :logged_in_user
-  before_action :load_spending_plan, only: :show
+  before_action :load_spending_plan, only: %i(show destroy)
+  before_action :check_owner_of_plan, only: %i(show destroy)
+  before_action :send_plan_to_recycle, only: :destroy
   before_action :load_budget, only: :create
 
   def new
@@ -9,6 +11,7 @@ class SpendingPlansController < ApplicationController
 
   def index
     @spending_plans = current_user.spending_plans.includes(:budget)
+                                  .is_recycle(false)
     search_spending_plan
     @spending_plans = @spending_plans.order_by_creat_at_desc
                                      .paginate page: params[:page],
@@ -26,6 +29,15 @@ class SpendingPlansController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    if @spending_plan.destroy
+      flash[:success] = t "flash.delete_plan_success"
+    else
+      flash[:danger] = t "flash.delete_plan_fail"
+    end
+    redirect_to spending_plans_path
   end
 
   private
@@ -48,18 +60,16 @@ class SpendingPlansController < ApplicationController
 
   def load_spending_plan
     @spending_plan = SpendingPlan.find_by id: params[:id]
-    return if @spending_plan.present? &&
-              @spending_plan.user.id == current_user.id
+    return if @spending_plan.present?
 
-    check_spending_plan
+    flash[:warning] = t "flash.plan_not_present"
+    redirect_to spending_plans_path
   end
 
-  def check_spending_plan
-    if @spending_plan.blank?
-      flash[:warning] = t "flash.plan_not_present"
-    elsif @spending_plan.user.id != current_user.id
-      flash[:warning] = t "flash.not_your_plan"
-    end
+  def check_owner_of_plan
+    return if @spending_plan.user.id == current_user.id
+
+    flash[:warning] = t "flash.not_your_plan"
     redirect_to spending_plans_path
   end
 
@@ -70,5 +80,17 @@ class SpendingPlansController < ApplicationController
                       params[:budget_id].present?
     @spending_plans = @spending_plans.filter_plan_type params[:plan_type] if
                       params[:plan_type].present?
+  end
+
+  def send_plan_to_recycle
+    return if @spending_plan.recycle
+
+    if @spending_plan.update_column :recycle, true
+      flash[:success] = t "flash.plan_to_recycle_success"
+      redirect_to spending_plans_path
+    else
+      flash[:success] = t "flash.plan_to_recycle_fail"
+      redirect_to @spending_plans
+    end
   end
 end
