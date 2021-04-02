@@ -10,6 +10,7 @@ en:
   sign_up: "Sign up"
   sign_out: "Sign out"
   create: "Create"
+  find: "Find"
   profile: "Profile"
   new_plan: "New plan"
   currency: "$"
@@ -30,3 +31,6 @@ en:
     error_end_day_compare: "The end date is after the start date"
     error_start_day_blank: "Please chooe start day"
     error_start_day_compare: "date starts from 01/01/2020"
+  will_paginate:
+    previous: "<"
+    next: ">"

@@ -143,3 +143,21 @@
     border-bottom: 1px solid $gray-lighter;
   }
 }
+
+.budgets {
+  padding: 10px 20px;
+  border-bottom: 1px solid $gray-lighter;
+}
+
+.link_children {
+  color: #337ab7;
+}
+
+.link_children:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.hide1 {
+  display: none;
+}

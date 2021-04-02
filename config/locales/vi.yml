@@ -10,6 +10,7 @@ vi:
   sign_up: "Đăng ký"
   sign_out: "Đăng xuất"
   create: "Tạo mới"
+  find: "Tìm kiếm"
   profile: "Thông tin"
   new_plan: "Kế hoạch mới"
   currency: "VNĐ"
@@ -30,3 +31,6 @@ vi:
     error_end_day_compare: "Ngày kết thúc phải ở trước ngày bắt đầu"
     error_start_day_blank: "Hãy chọn ngày bắt đầu"
     error_start_day_compare: "Ngày bắt đầu ít nhất là 01/01/2020"
+  will_paginate:
+    previous: "<"
+    next: ">"

@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <h1><%= t "budget.message_index" %></h1>
+  <div class="row">
+    <%= form_with url: budgets_path, method: :get, id: "form" do |f| %>
+      <div class="col-lg-4">
+        <%= f.search_field :name, class: "form-control", placeholder: t("budget.placeholder_name"), value: params[:name] %>
+      </div>
+      <div class="col-lg-3">
+        <div class="input-group">
+          <%= f.label t("budget.from_money"), class: "input-group-addon" %>
+          <%= f.number_field :from_money, class:"form-control", placeholder: t("budget.placeholder_money"), value: params[:from_money], min: 0, step: :any %>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="input-group">
+          <%= f.label t("budget.to_money"), class: "input-group-addon" %>
+          <%= f.number_field :to_money, class:"form-control", placeholder: t("budget.placeholder_money"), value: params[:to_money], min: 0, step: :any %>
+        </div>
+      </div>
+    <% end %>
+    <div class="col-lg-1">
+      <button id="submit" class="col-lg-10 btn btn-primary"><%= t "find" %></button>
+    </div>
+    <div class="col-lg-1">
+      <%= link_to t("create"), new_budget_path, class: "col-lg-10 btn btn-success" %>
+    </div>
+  </div>
+  <div class="row">
+    <%= render @budgets %>
+  </div>
+</div>
+<%= will_paginate previous_label: t("will_paginate.previous"), next_label: t("will_paginate.next") %>

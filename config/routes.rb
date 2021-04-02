@@ -8,9 +8,9 @@ Rails.application.routes.draw do
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
     resources :users
-    resources :budgets, only: %i(new create) do
+    resources :budgets, only: %i(index new create) do
       collection do
-        get "/:parent_id/new", to: "budgets#new"
+        get "/:parent_id/new", to: "budgets#new", as: "new_with_parent"
         post "/:parent_id", to: "budgets#create", as: "with_parent"
       end
     end

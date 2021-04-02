@@ -1,0 +1,17 @@
+<div id=<%= "children_budget_" << budget.id.to_s %> class="<%= budget.parent_id ? "col-lg-12 budgets hide1" : "col-lg-12 budgets" %>">
+  <br>
+  <div class="col-lg-11">
+    <strong><%= t "budget.name" %>:</strong>
+    <%= budget.name %>
+    <br>
+    <strong><%= t "budget.money" %>:</strong>
+    <%= number_to_currency(budget.money, dilimiter: ",") %>
+    <%= link_to t("budget.create"), new_with_parent_budgets_path(budget) %>
+    <% unless budget.child_budgets.empty? %>
+      <br>
+      <span class="link_children" value=<%= budget.id %>><%= t "budget.load_children" %>&#x25BE;</span>
+    <% end %>
+  </div>
+  <%= hidden_field_tag "id_budget_" << budget.id.to_s, budget.child_budgets.ids %>
+  <%= render budget.child_budgets %>
+</div>

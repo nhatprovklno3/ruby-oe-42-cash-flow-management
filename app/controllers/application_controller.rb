@@ -22,4 +22,9 @@ class ApplicationController < ActionController::Base
     flash[:danger] = t "flash.please_login"
     redirect_to login_path
   end
+
+  def paginate collections
+    collections.paginate(page: params[:page],
+      per_page: params[:per_page] || Settings.paginate.per_page)
+  end
 end
