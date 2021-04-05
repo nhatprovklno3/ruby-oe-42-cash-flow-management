@@ -15,6 +15,7 @@ en:
   new_plan: "New plan"
   currency: "$"
   all_plan: "Your plan"
+  cash_flow: "Your cash flow"
   flash:
     sign_in_success: "Welcome to Cash Flow!"
     invalid_sign_in: "Invalid email/password combination"

@@ -15,6 +15,7 @@ vi:
   new_plan: "Kế hoạch mới"
   currency: "VNĐ"
   all_plan: "Kế hoạch của bạn"
+  cash_flow: "Tài chính của bạn"
   flash:
     sign_in_success: "Chào mừng bạn đến với Cash Flow!"
     invalid_sign_in: "Email hoặc mật khẩu không đúng"

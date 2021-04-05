@@ -25,6 +25,9 @@ class SpendingPlan < ApplicationRecord
     .or(where("end_date between ? and ?", start_statistic, end_statistic))
     .or(where("? between start_date and end_date", start_statistic))
   end)
+  scope :search_by_month_year, (lambda do |date|
+    where("Month(end_date) = ? and Year(end_date) = ?", date.month, date.year)
+  end)
 
   before_create :status_for_plan
   before_create :repeat_type_for_plan

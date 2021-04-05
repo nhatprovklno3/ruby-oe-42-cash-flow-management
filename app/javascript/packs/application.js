@@ -9,7 +9,8 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 require("jquery")
 import "bootstrap"
-import I18n from 'i18n-js'
+import I18n from "i18n-js"
+import "@fortawesome/fontawesome-free/css/all"
 window.I18n = I18n
 require("chartkick")
 require("chart.js")
