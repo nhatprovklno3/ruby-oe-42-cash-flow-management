@@ -34,3 +34,24 @@ vi:
   will_paginate:
     previous: "<"
     next: ">"
+  statistics:
+    index:
+      title:
+        - "Thống kê 1 tháng gần đầy"
+        - "Thống kê từ ngày "
+        - "đến ngày "
+        - "Thống kê"
+      label:
+        - "Tổng số kế hoạch:"
+        - "Bạn đã tiết kiệm:"
+        - "Bạn đã chi:"
+        - "Tổng thu vào:"
+        - "Total chi tiêu:"
+      choose:
+        - "Chọn thời gian"
+        - "Ngày bắt đầu"
+        - "Ngày kết thúc"
+        - "Thống kê"
+      error:
+        - "Ngày bắt đầu > Ngày kết thúc"
+        - "Ngày bắt đầu và kết thúc không được để trống"

@@ -4,6 +4,13 @@
 .navbar {
   margin-bottom: 0;
   border-radius: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-inverse {
+  margin-top: -1px;
 }
 
 .img-home{
@@ -59,6 +66,7 @@
   margin-left: -250px;
   overflow-y: auto;
   background: #333;
+  margin-top: -1px;
 }
 
 #page-content-wrapper {
@@ -160,4 +168,8 @@
 
 .hide1 {
   display: none;
+}
+
+#submit {
+  margin-top: 4px;
 }
