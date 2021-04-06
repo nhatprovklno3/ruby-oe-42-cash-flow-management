@@ -1,5 +1,20 @@
 vi:
+  recycle_plans:
+    index:
+      title: "Thùng rác"
+      empty_content: "Thùng rác đang trống"
   spending_plans:
+    spending_plan:
+      label:
+        - "Tên kế hoạch: "
+        - "Hoạt động: "
+        - "Hạng mục: "
+        - "Chi phí:"
+        - "Thời gian: "
+        - "Xóa"
+        - "Khôi phục"
+      content_delete: "Bạn có chắc chắn?"
+      content_restore: "Bạn muốn khôi phục kế hoạch?"
     new:
       title: "Tạo kế hoạch mới"
       label:
@@ -38,12 +53,6 @@ vi:
         - "Thu hay chi?"
         - "Tìm theo tên"
       button: "Tìm kiếm"
-      label:
-        - "Tên kế hoạch: "
-        - "Hoạt động: "
-        - "Hạng mục: "
-        - "Chi phí:"
-        - "Thời gian: "
     show:
       label:
         - "Hạng mục: "

@@ -10,8 +10,8 @@ import "channels"
 require("jquery")
 import "bootstrap"
 import I18n from "i18n-js"
-import "@fortawesome/fontawesome-free/css/all"
 window.I18n = I18n
+import "@fortawesome/fontawesome-free/css/all"
 require("chartkick")
 require("chart.js")
 

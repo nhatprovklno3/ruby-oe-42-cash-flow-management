@@ -1,5 +1,20 @@
 en:
+  recycle_plans:
+    index:
+      title: "Recycle"
+      empty_content: "Recycle is empty"
   spending_plans:
+    spending_plan:
+      label:
+        - "Name plan: "
+        - "Type: "
+        - "Budget: "
+        - "Money:"
+        - "Time: "
+        - "Delete"
+        - "Restore"
+      content_delete: "You sure?"
+      content_restore: "You want to restore?"
     new:
       title: "Create new plan"
       label:
@@ -38,12 +53,6 @@ en:
         - "Choose type"
         - "Seach by name"
       button: "Tìm kiếm"
-      label:
-        - "Name plan: "
-        - "Type: "
-        - "Budget: "
-        - "Money:"
-        - "Time: "
     show:
       label:
         - "Bugget of plan: "

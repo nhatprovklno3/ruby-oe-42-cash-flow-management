@@ -5,7 +5,7 @@ class StatisticsController < ApplicationController
   def index
     return if @spending_plans.present?
 
-    @spending_plans = @current_user.spending_plans
+    @spending_plans = @current_user.spending_plans.is_recycle(false)
                                    .filter_statistic Time.zone.today - 1.month,
                                                      Time.zone.today
     load_info_statistic
@@ -25,7 +25,7 @@ class StatisticsController < ApplicationController
                   params[:end_date].present? &&
                   params[:end_date] >= params[:start_date]
 
-    @spending_plans = @current_user.spending_plans
+    @spending_plans = @current_user.spending_plans.is_recycle(false)
                                    .filter_statistic params[:start_date],
                                                      params[:start_date]
     load_info_statistic
