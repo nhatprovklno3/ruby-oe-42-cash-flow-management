@@ -6,7 +6,7 @@
   <% if @spending_plan.recycle %>
     <%= link_to t("spending_plans.spending_plan.label")[6], recycle_plan_path(@spending_plan),
       method: :patch, data: {confirm: t("spending_plans.spending_plan.content_restore")},
-    class:"text-primary" %>
+      class:"text-primary" %>
     </i>
   <% else %>
     <%= link_to t("spending_plans.spending_plan.label")[5],

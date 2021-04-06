@@ -28,9 +28,7 @@ class SpendingPlan < ApplicationRecord
   scope :search_by_month_year, (lambda do |date|
     where("Month(end_date) = ? and Year(end_date) = ?", date.month, date.year)
   end)
-  scope :is_recycle, (lambda do |recycle|
-    where("recycle = ?", recycle)
-  end)
+  scope :is_recycle, ->(recycle){where recycle: recycle}
 
   before_create :status_for_plan
   before_create :repeat_type_for_plan

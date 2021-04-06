@@ -43,7 +43,5 @@
 </div>
 
 <br>
-<% @spending_plans.each do |spending_plan| %>
-  <%= render spending_plan %>
-<% end %>
+<%= render @spending_plans %>
 <%= will_paginate %>
