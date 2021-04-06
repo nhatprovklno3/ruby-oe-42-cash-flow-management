@@ -1,10 +1,10 @@
 <div class="card-plan">
-  <label><%= t("spending_plans.index.label")[0] %></label>
+  <label><%= t("spending_plans.spending_plan.label")[0] %></label>
   <%= link_to spending_plan.name, spending_plan_path(spending_plan.id) %><br>
-  <label><%= t("spending_plans.index.label")[2] %></label> <%= spending_plan.budget.name %><br>
-  <label><%= t("spending_plans.index.label")[3] %></label> <%= number_to_currency(spending_plan.total_money) %><br>
+  <label><%= t("spending_plans.spending_plan.label")[2] %></label> <%= spending_plan.budget.name %><br>
+  <label><%= t("spending_plans.spending_plan.label")[3] %></label> <%= number_to_currency(spending_plan.total_money) %><br>
   <small>
-    <i><%= t("spending_plans.index.label")[4]%>
+    <i><%= t("spending_plans.spending_plan.label")[4]%>
       <%= l spending_plan.start_date %> ->
       <%= l spending_plan.end_date %>
     </i>

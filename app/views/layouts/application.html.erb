@@ -33,6 +33,7 @@
   <%= javascript_pack_tag "create_new_plan", "data-turbolinks-track": "reload" %>
   <%= javascript_pack_tag "budgets", "data-turbolinks-track": "reload" %>
   <%= javascript_pack_tag "statistic", "data-turbolinks-track": "reload" %>
+  <%= javascript_pack_tag "share", "data-turbolinks-track": "reload" %>
   <script>
    var language = "<%= I18n.locale %>";
    I18n.translations = <%== I18n::JS.filtered_translations.to_json %>;

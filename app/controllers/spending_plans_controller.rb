@@ -1,4 +1,6 @@
 class SpendingPlansController < ApplicationController
+  include PlanServices
+
   before_action :logged_in_user
   before_action :load_spending_plan, except: %i(new index create)
   before_action :check_owner_of_plan, except: %i(new index create)
@@ -49,7 +51,6 @@ class SpendingPlansController < ApplicationController
     else
       flash[:danger] = t "flash.delete_plan_fail"
     end
-    redirect_to spending_plans_path
   end
 
   private
@@ -68,21 +69,6 @@ class SpendingPlansController < ApplicationController
 
     flash[:warning] = t "flash.budget_can_not_load"
     redirect_to new_spending_plan_path
-  end
-
-  def load_spending_plan
-    @spending_plan = SpendingPlan.find_by id: params[:id]
-    return if @spending_plan.present?
-
-    flash[:warning] = t "flash.plan_not_present"
-    redirect_to spending_plans_path
-  end
-
-  def check_owner_of_plan
-    return if @spending_plan.user.id == current_user.id
-
-    flash[:warning] = t "flash.not_your_plan"
-    redirect_to spending_plans_path
   end
 
   def search_spending_plan
