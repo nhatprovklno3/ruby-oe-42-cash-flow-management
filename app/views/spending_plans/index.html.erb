@@ -44,4 +44,30 @@
 
 <br>
 <%= render @spending_plans %>
+<input type="hidden" id="current_user_email" value=<%= current_user.email %>>
 <%= will_paginate %>
+
+<!-- Modal -->
+<div id="share_modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5><%= t "spending_plans.share" %></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <strong><%= t "spending_plans.share_with" %></strong>
+        <input type="text" id="email" placeholder=<%= t("spending_plans.placeholder_email") %>>
+        <%= form_with url: share_plans_path, id: :form_share do |f| %>
+          <%= f.hidden_field :emails %>
+          <%= f.hidden_field :plan_id %>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary submit_share" class="close" data-dismiss="modal"><%= t "spending_plans.share" %></button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+var id_plan
+var email = ''
+$('.share_button').click(function() {
+  id_plan = $(this).data('plan-id')
+  current_user_email = document.getElementById('current_user_email').value
+})
+$('.submit_share').click(function() {
+    $('#plan_id').val(id_plan)
+    $('#emails').val(email)
+    $('#form_share').submit()
+});
+
+(function($){
+
+    $.fn.email_multiple = function(options) {
+
+        let defaults = {
+            reset: false,
+            fill: false,
+            data: null
+        };
+
+        let settings = $.extend(defaults, options);
+
+        return this.each(function()
+        {
+            $(this).after("<div class=\"all-mail\"></div>\n" +
+                "<input type=\"text\" name=\"email\" class=\"enter-mail-id\" placeholder=\"Enter Email ...\" />");
+            let $orig = $(this);
+            let $element = $('.enter-mail-id');
+            $element.keydown(function (e) {
+                $element.css('border', '');
+                if (e.keyCode === 13 || e.keyCode === 32) {
+                    let getValue = $element.val().trim();
+                    if (getValue == ""){
+                        alert(I18n.t("spending_plans.alert_blank_email"))
+                        return false
+                    }
+                    if (/^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,6}$/.test(getValue)){
+                        if (getValue == current_user_email){
+                            alert(I18n.t("spending_plans.alert_error_current_email"))
+                            return false
+                        }
+                        $('.all-mail').append('<span class="email-ids">' + getValue + '<span class="cancel-email">x</span></span>');
+                        $element.val('');
+
+                        email += getValue + ' '
+                    } else {
+                        alert(I18n.t("spending_plans.alert_valid_email"))
+                        $element.css('border', '1px solid red')
+                    }
+                }
+
+                $orig.val(email.slice(0, -1))
+            });
+
+            $(document).on('click','.cancel-email',function(){
+                $(this).parent().remove();
+            });
+            return $orig.hide()
+        });
+    };
+})(jQuery);
+$(document).ready(function($){
+  $("#email").email_multiple()
+});
