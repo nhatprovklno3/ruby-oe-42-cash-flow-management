@@ -17,6 +17,7 @@ en:
       content_restore: "You want to restore?"
     new:
       title: "Create new plan"
+    form:
       label:
         - "Plan Name*:"
         - "Income or Expense*?"
@@ -46,6 +47,10 @@ en:
         - "Finished"
         - "Waiting"
         - "Doing"
+    new:
+      title: "Create new plan"
+    edit:
+      title: "Update plan"
     index:
       title:
         - "All your plan"

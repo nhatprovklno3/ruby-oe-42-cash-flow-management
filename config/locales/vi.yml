@@ -35,6 +35,7 @@ vi:
     delete_plan_fail: "Không thể xóa kế hoạch"
     restore_plan_success: "Đã khôi phục kế hoạch"
     restore_plan_fail: "Không thể khôi phụ, hãy thử lại sau"
+    update_plan_success: "Đã chỉnh sửa kết hoạch !"
   validate:
     error_end_day_blank: "Hãy chọn ngày kết thúc"
     error_end_day_compare: "Ngày kết thúc phải ở trước ngày bắt đầu"
