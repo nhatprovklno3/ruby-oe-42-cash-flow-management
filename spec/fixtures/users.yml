@@ -1,0 +1,16 @@
+one:
+  id: 1
+  name: "carlospaz"
+  email: "carlospaz@email.com"
+  password: "123123"
+two:
+  id: 2
+  name: "ramiroroque"
+  email: "ramiroroque@email.com"
+  password: "123123"
+
+three:
+  id: 3
+  name: "juanperez"
+  email: "juanperez@email.com"
+  password: "123123"

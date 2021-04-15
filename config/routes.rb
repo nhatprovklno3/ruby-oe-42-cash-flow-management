@@ -4,10 +4,8 @@ Rails.application.routes.draw do
 
     get "page_layout/home"
     get "page_layout/about"
-    get "/login", to: "sessions#new"
-    post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
-    resources :users
+    get "show_user/:id", to: "users#show", as: "show_user"
     resources :budgets, only: %i(index new create) do
       collection do
         get "/:parent_id/new", to: "budgets#new", as: "new_with_parent"
@@ -18,5 +16,6 @@ Rails.application.routes.draw do
     resources :share_plans, only: :create
     resources :statistics, only: :index
     resources :recycle_plans, only: %i(index update)
+    devise_for :users
   end
 end
